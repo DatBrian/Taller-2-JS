@@ -1,16 +1,19 @@
-// 1. Construir el algoritmo para un programa que ingrese tres
-// notas de un alumno, si el promedio es menor o igual a 3.9
-// mostrar un mensaje "Estudie“, de lo contrario un mensaje que
-// diga "becado"
+//Dado un número indicar si es par o impar y si es mayor de 10.
 
-let nota1 = (prompt("Ingrese su primera nota: "))
-let nota2 = (prompt("Ingrese su segunda nota: "))
-let nota3 = (prompt("Ingrese su tercera nota: "))
-let prom = (nota1 + nota2 + nota3)/3
+let numUs = parseInt(prompt("Ingrese un número: "));
 
-if (prom < 3.9) {
-    alert("Estudie");
+if (numUs % 2 === 0 && numUs > 10){
+    alert("Es par y mayor que 10");
 }
-else if (prom > 3.9) {
-    alert("Becado");
+else if (numUs % 2 === 0 && numUs < 10){
+    alert("Es par pero menor qur 0")
+}
+else if(numUs % 2 !== 0 && numUs > 10){
+    alert("Es impar y mayor que 10")
+}
+else if(numUs === 10){
+    alert("Es par e igual a 10")
+}
+else{
+    alert("Es impar y menor que 10")
 }
