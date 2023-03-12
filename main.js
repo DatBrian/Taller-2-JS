@@ -1,9 +1,13 @@
-// 7. Programa que pida el ingreso del nombre y precio de un artículo y la
-// cantidad que lleva el cliente. Mostrar lo que debe pagar el comprador
-// en su factura.
+// 8. Programa que Ingrese por teclado:
+// a. el valor del lado de un cuadrado para mostrar por pantalla el
+// perímetro del mismo
+// b. la base y la altura de un rectángulo para mostrar el área del
+// mismo
 
-let nombre = prompt("Ingrese el nombre del artículo que desea comprar: ");
-let precio = parseFloat(prompt("Ingrese el precio del artículo que desea comprar: "));
-let cantidad = parseInt(prompt("Ingrese la cantidad de artículos que desea comprar: "));
-let total = parseFloat(precio * cantidad)
-alert(`El total a pagar es: $${total}`);
+lado = parseFloat(prompt("Ingrese el lado de un cuadrado: "));
+perimetro = lado *  4
+alert(`El perímetro es igual al: ${perimetro}`);
+base = parseFloat(prompt("Ingrese la base del rectángulo: "));
+altura = parseFloat(prompt("Ingrese la altura del rectángulo: "));
+area = base * altura
+alert(`El área del rectángulo es igual a: ${area}`)
