@@ -1,21 +1,79 @@
-// 5. Construir el algoritmo que lea por teclado dos números,
-// si el primero es mayor al segundo informar su suma y
-// diferencia, en caso contrario, informar el producto y la
-// división del primero respecto al segundo.
-let num1 = parseInt(prompt("Ingrese el primer número: "));
-let num2 = parseInt(prompt("Ingrese el segundo número: "));
-let suma = num1 + num2;
-let diff = num1 - num2;
-let producto = num1 * num2;
-let division = num1 / num2;
+// 6. Construir el algoritmo en Javascript para un programa
+// para cualquier cantidad de estudiantes que lea el nombre,
+// el sexo y la nota definitiva y halle al estudiante con la mayor
+// nota y al estudiante con la menor nota y cuantos eran
+// hombres y cuantos mujeres.
 
-if (num1 > num2) {
-    alert(`El prmer número es mayor, la suma entre ambos es igual a: ${suma} y la diferencia entre ambos es igual a: ${diff}`)
-}
-else if (num1 < num2) {
-    alert(`El primer número es menor, el producto entre ambos es igual a: ${producto} y la división entre ambos es igual a: ${division}`)
+let estudiantes = [];
+let nombres = [];
+let notas = [];
+let hombres = 0;
+let mujeres = 0;
 
+function actualizarDatos(nombre, nota, sexo) {
+    estudiantes.push({
+        nombre: nombre,
+        sexo: sexo,
+        nota: nota
+    });
+    nombres.push(nombre);
+    notas.push(nota);
 }
-else if (num1 === num2){
-    alert("Ambos números son iguales")
+function pedirDatos(){
+    let nombre = prompt("Ingrese su nómbre: ");
+    let nota = parseInt(prompt("Ingrese su nota: "));
+    let sexo = pedirSexo();
+    actualizarDatos(nombre, nota, sexo);
 }
+
+function pedirSexo(){
+    let sexo = prompt(`Ingrese su sexo ("M" o "F"):`)
+    if (sexo === "M") {
+        hombres++
+        sexo = "Masculino"
+        return sexo;
+
+    }
+    else if (sexo === "F"){
+        mujeres++;
+        sexo = "Femenino"
+        return sexo;
+    }
+    else {
+        return sexo = "indefinido"
+    }
+}
+
+function calcularMayor (){
+    let notaMayor = Math.max(...notas);
+    let estudianteMayor = estudiantes.find(estudiante => estudiante.nota === notaMayor);
+    alert(`El estudiante con la nota mayor es: ${estudianteMayor["nombre"]}`);
+}
+
+function calcularMenor (){
+    let notaMenor = Math.min(...notas);
+    let estudianteMenor = estudiantes.find(estudiante => estudiante.nota === notaMenor);
+    alert(`El estudiante con la nota menor es: ${estudianteMenor["nombre"]}`);
+}
+
+function mostrarDatos(){
+    console.log(estudiantes);
+    console.log(nombres);
+    console.log(notas);
+    console.log(hombres);
+    console.log(mujeres);
+    calcularMayor();
+    calcularMenor();
+    alert(`Hay ${hombres} hombres y ${mujeres} mujeres`)
+}
+
+function programa (){
+    pedirDatos()
+    if (confirm("¿Quieres continuar")){
+        programa();
+    }else{
+        mostrarDatos();
+    }
+}
+
+programa();
