@@ -1,46 +1,32 @@
-// 9. N atletas han pasado a finales en salto triple en los juegos
-// olímpicos femenino de 2022. Diseñe un programa que pida por
-// teclado los nombres de cada atleta finalista y a su vez, sus
-// marcas del salto en metros. Informar el nombre de la atleta
-// campeona que se quede con la medalla de oro y si rompió
-// récord, reportar el pago que será de 500 millones. El récord
-// esta en 15,50 metros.
+// 10. Desarrolle un programa cíclico que capture un dato
+// numérico cada vez, y los vaya acumulando. El programa se
+// detiene cuando el usuario digita un cero. El programa debe
+// mostrar: LA SUMATORIA DE LOS VALORES, EL VALOR DEL
+// PROMEDIO, CUÁNTOS VALORES FUERON DIGITADOS, MAYOR
+// VALOR Y MENOR VALOR.
 
-let atletas = [];
-let marcas = [];
-let record = 15.50
+let numeros = [];
+let suma = 0;
 
-function actualizarDatos(nombre, marca){
-    atletas.push({
-        nombre: nombre,
-        marca: marca
-    });
-    marcas.push(marca);
-}
-function pedirDatos(){
-    let nombre = prompt("Ingrese su nombre: ");
-    let marca = parseFloat(prompt("Ingrese su marca: "));
-    actualizarDatos(nombre, marca);
-}
-function calcularMayor(){
-    let marcaMayor = Math.max(...marcas);
-    let atletaMayor = atletas.find(atleta => atleta.marca === marcaMayor);
-    if (marcaMayor > record){
-        alert(`La atleta ${atletaMayor["nombre"]} ha superado el record actual con una marca de ${marcaMayor} ganando el premio de 500 millones`);
-    }
-    else{
-        alert(`La ganadora de la medalla de oro con la mejor marca es: ${atletaMayor["nombre"]}`)
-    }
+function agregarNumeros(){
+    do {
+        num = parseInt(prompt("Ingrese un número: "));
+        numeros.push(num);
+    }while (num !== 0)
 }
 
-function programa(){
-    pedirDatos();
-    if(confirm("¿Agregar otra atleta?")){
-        programa();
-    }
-    else {
-        calcularMayor();
-    }
-}
+agregarNumeros();
 
-programa();
+for(let i = 0; i < numeros.length; i++) {
+    suma += numeros[i];}
+let total = numeros.length
+alert(`La suma de los datos es: ${suma}`);
+alert(`El promedio de los datos es: ${suma/total}`);
+alert(`El total de valores digitados fue de: ${total}`);
+alert(`El valor más alto fue: ${Math.max(...numeros)}`);
+alert(`El valor más bajo fue: ${Math.min(...numeros)}`);
+
+
+
+
+
